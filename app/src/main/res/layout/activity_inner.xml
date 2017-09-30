@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#37474f">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#37474f"
+        tools:context="com.example.theeagler.ironlock.InnerActivity">
+
+        <Button
+            android:id="@+id/inner_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#37474f"
+            android:padding="@dimen/margin"
+            android:text="@string/inner_view"
+            android:textAlignment="viewStart"
+            android:textColor="#bdbdbd"
+            android:textSize="@dimen/textSize4" />
+    </LinearLayout>
+</ScrollView>

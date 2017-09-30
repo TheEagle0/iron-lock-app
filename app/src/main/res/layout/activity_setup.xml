@@ -1,0 +1,69 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#37474f"
+    tools:context="com.example.theeagler.ironlock.SetupActivity">
+
+    <TextView
+        android:id="@+id/welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:lines="1"
+        android:text="@string/welcome_scr"
+        android:textColor="#bdbdbd"
+        android:textSize="@android:dimen/notification_large_icon_width" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:orientation="vertical">
+
+
+        <EditText
+            android:id="@+id/user_name_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:background="@drawable/shape"
+            android:hint="@string/hint1"
+            android:lines="1"
+            android:maxLength="12"
+            android:textAlignment="center"
+            android:textColor="#bdbdbd"
+            android:textSize="@dimen/textSize" />
+
+        <EditText
+            android:id="@+id/password_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:background="@drawable/shape"
+            android:hint="@string/hint_password"
+            android:inputType="numberPassword"
+            android:lines="1"
+            android:maxLength="6"
+            android:textAlignment="center"
+            android:textColor="#bdbdbd"
+            android:textSize="@dimen/textSize" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:background="#37474f"
+        android:paddingLeft="@dimen/padding"
+        android:paddingRight="@dimen/padding"
+        android:text="@string/button_save"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/textSize" />
+</RelativeLayout>

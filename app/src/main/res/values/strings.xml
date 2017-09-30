@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Iron Lock</string>
+    <string name="hint1">User Name</string>
+    <string name="password">Password</string>
+    <string name="hint_password">Password</string>
+    <string name="button_save">Save</string>
+    <string name="welcome_scr">Welcome</string>
+    <string name="hello">Hello</string>
+    <string name="user_name">User Name</string>
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="tv_text">It\'s not your first run!!!</string>
+    <string name="inner_view">Change Username and Password</string>
+    <string name="lock_text">SET THE PATTERN</string>
+    <string name="button_lock">SET PATTERN</string>
+    <string name="hint_retype_password">Please enter Your Password.</string>
+    <string name="hint_retype_user_name">Please Enter Your User Name.</string>
+    <string name="next_button">Next</string>
+    <string name="image">Image</string>
+    <string name="button_1">1</string>
+    <string name="button_2">2</string>
+    <string name="button_3">3</string>
+    <string name="button_4">4</string>
+    <string name="button_5">5</string>
+    <string name="button_6">6</string>
+    <string name="button_7">7</string>
+    <string name="button_8">8</string>
+    <string name="button_9">9</string>
+    <string name="button_0">0</string>
+    <string name="button_clear">Clear</string>
+    <string name="hint_password_screen">Please enter your password.</string>
+</resources>
+
