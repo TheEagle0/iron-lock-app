@@ -13,7 +13,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -26,16 +25,16 @@ import static android.telephony.TelephonyManager.EXTRA_STATE_RINGING;
 public class Phone_Receiver extends BroadcastReceiver implements View.OnClickListener {
 
     public static WindowManager windowManager;
-    @SuppressLint("StaticFieldLeak")
-    public static View passwordView;
+    public View passwordView;
     public static boolean isCallLocked;
     public EditText ed_Password;
     public String saved_password;
     public String enteredPassword;
 
-    private static void hidePassword() {
+    private void hidePassword() {
         isCallLocked = false;
         windowManager.removeViewImmediate(passwordView);
+        passwordView = null;
     }
 
     //public static String preState= TelephonyManager.EXTRA_STATE_IDLE;
@@ -46,7 +45,7 @@ public class Phone_Receiver extends BroadcastReceiver implements View.OnClickLis
             if (bundle != null) {
                 final String state = bundle.getString(TelephonyManager.EXTRA_STATE);
                 if (state != null)
-                    if (state.equals(EXTRA_STATE_RINGING)) {
+                    if (state.equals(EXTRA_STATE_RINGING) && passwordView == null) {
                         ShowWindowPatternScreen(context);
                     } else {
                         if (isCallLocked) {
@@ -118,34 +117,33 @@ public class Phone_Receiver extends BroadcastReceiver implements View.OnClickLis
                         , PixelFormat.TRANSLUCENT);
         params.dimAmount = 1f;
         windowManager.addView(passwordView, params);
-            PatternView patternView = passwordView.findViewById(R.id.pv);
-            patternView.setOnPatternListener(new PatternView.OnPatternListener() {
-                @Override
-                public void onPatternStart() {
+        PatternView patternView = passwordView.findViewById(R.id.pv);
+        patternView.setOnPatternListener(new PatternView.OnPatternListener() {
+            @Override
+            public void onPatternStart() {
 
+            }
+
+            @Override
+            public void onPatternCleared() {
+
+            }
+
+            @Override
+            public void onPatternCellAdded(List<PatternView.Cell> pattern) {
+
+            }
+
+            @Override
+            public void onPatternDetected(List<PatternView.Cell> pattern) {
+                String patternSha1 = PatternUtils.patternToSha1String(pattern);
+                SharedPreferences sharedPreferences = context.getSharedPreferences("data", MODE_PRIVATE);
+                if (patternSha1.equals(sharedPreferences.getString("pattern_set", ""))) {
+                    hidePassword();
                 }
+            }
 
-                @Override
-                public void onPatternCleared() {
-
-                }
-
-                @Override
-                public void onPatternCellAdded(List<PatternView.Cell> pattern) {
-
-                }
-
-                @Override
-                public void onPatternDetected(List<PatternView.Cell> pattern) {
-                    String patternSha1 = PatternUtils.patternToSha1String(pattern);
-                    SharedPreferences sharedPreferences = context.getSharedPreferences("data", MODE_PRIVATE);
-                    if (patternSha1.equals(sharedPreferences.getString("pattern_set", ""))) {
-                        hidePassword();
-                    }else {
-                        Toast.makeText(context,"Error",Toast.LENGTH_LONG).show();
-                    }
-                }
-            });
+        });
     }
 
     @Override
